@@ -1,1 +1,0 @@
-web gunicorn achszSagacity.wsgi:application --log-file -
