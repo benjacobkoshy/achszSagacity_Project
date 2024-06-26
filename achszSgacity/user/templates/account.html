@@ -1,0 +1,658 @@
+
+
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ach'z SaGaCiTy</title>
+      <!-- Favicons -->
+  <link href="{% static 'assets/img/favicon.png' %}" rel="icon">
+  <link href="{% static 'assets/img/apple-touch-icon.png' %}" rel="apple-touch-icon">
+    
+    <style>
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+
+        body {
+                font-family: Verdana, Geneva, Tahoma, sans-serif;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                height: 100vh;
+                margin: 0;
+                background: linear-gradient(to bottom right, rgba(0, 123, 255, 0.7), rgba(255, 255, 255, 0.7)), url('{% static "logo/img.jpg" %}');
+                background-size: cover;
+                background-attachment: fixed;
+            }
+
+
+            .account-page {
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+                width: 80%;
+                max-width: 1200px;
+                padding: 50px 0;
+            }
+
+            .brand-container {
+                text-align: left;
+            }
+
+            .brand-container img {
+                width: 200px;
+                height: auto;
+                margin-bottom: 20px;
+            }
+
+     
+
+
+
+
+            .message-container{
+                background: #fff;
+                width: 100%;
+                max-width: 400px;
+                position: relative;
+                text-align: center;
+                padding: 20px;
+                margin: 20px auto;
+                box-shadow: 0 0 20px 0px rgba(0, 0, 0, 0.1);
+                overflow: hidden;
+                border-radius: 8px;
+                opacity: .9;
+                margin-top: -25px;
+                color: red;
+
+        }
+
+ 
+        .close-btn {
+            position: absolute;
+            top: 10px;
+            right: 20px;
+            cursor: pointer;
+            font-size: 20px;
+            font-weight: bold;
+            color: red;
+        }
+
+    .form-container {
+        background: #fff;
+        width: 400px;
+        height: 510px; /* Adjust the height as needed */
+        position: relative;
+        text-align: center;
+        padding: 20px 0;
+        margin: auto;
+        box-shadow: 0 0 20px 0px rgba(0, 0, 0, 0.1);
+        overflow: hidden;
+        border-radius: 8px;
+        opacity: .9;
+    }
+
+    #Indicator {
+        width: 100px;
+        border: none;
+        background: #04566E;
+        height: 3px;
+        margin-top: 8px;
+        transform: translateX(100px);
+        transition: transform 1s;
+    }
+
+    form .btn {
+        width: 100%;
+        border: none;
+        cursor: pointer;
+        margin: 10px 0;
+    }
+
+    form .btn:focus {
+        outline: none;
+    }
+
+
+
+    .btn {
+        display: inline-block;
+        background: #04566E;
+        color: white;
+        padding: 8px 30px;
+        margin: 30px 0;
+        border-radius: 30px;
+        transition: background 0.5s;
+    }
+
+    .btn:hover {
+        background: #0685ac;
+    }
+
+
+    #LoginForm {
+        text-align: center;
+        left: -400px;
+    }
+
+    #RegForm {
+        text-align: center;
+        left: 0px;
+    }
+
+    .form-container span {
+        font-weight: bold;
+        padding: 0 10px;
+        color: #555;
+        cursor: pointer;
+        width: 100px;
+        display: inline-block;
+    }
+
+    .form-btn {
+        display: inline-block;
+        color: #04566E;
+    }
+
+    .form-container form {
+        text-align: center;
+        max-width: 400px;
+        padding: 0 20px;
+        position: absolute;
+        top: 130px;
+        transition: transform 1s;
+    }
+
+
+
+    form input{
+            width: 100%; 
+            height: 30px;
+            margin: 10px 0;
+            padding: 0 10px;
+            box-sizing: border-box;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            outline: none;
+            transition: border-color 0.3s;
+            font-weight: 10px;
+    }
+
+    form input:focus {
+            border-color: #4CAF50;
+    }
+    
+    form input:hover{
+            box-shadow: 0 0 5px rgba(0, 0, 0, 0.3);
+            caret-color: #00ff00;
+    } 
+
+
+    form a {
+            text-decoration: none;
+            font-size: 12px;
+            padding-top: 10px;
+            display: block;
+            color:  #04566E;
+    }
+
+    form a:hover{
+            color: rgb(34, 34, 182);
+            font-size: 14px;
+    }
+
+
+        @media (max-width: 1199px) {
+            
+            .account-page {
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+                width: 60%;
+                max-width: 1000px;
+                padding: 30px 0;
+            }
+           
+
+            .brand-container img {
+                width: 150px;
+                height: auto;
+                margin-bottom: 20px;
+            }
+
+            .message-container{
+                background: #fff;
+                width: 100%;
+                max-width: 400px;
+                position: relative;
+                text-align: center;
+                padding: 20px;
+                margin: 20px auto;
+                box-shadow: 0 0 20px 0px rgba(0, 0, 0, 0.1);
+                overflow: hidden;
+                border-radius: 8px;
+                opacity: .9;
+                margin-top: -25px;
+                color: red;
+
+             }
+
+ 
+            .close-btn {
+                position: absolute;
+                top: 10px;
+                right: 0px;
+                cursor: pointer;
+                font-size: 10px;
+                font-weight: bold;
+                color: red;
+            }
+
+            .form-container {
+                background: #fff;
+                width: 300px;
+                height: 450px; /* Adjust the height as needed */
+                position: relative;
+                text-align: center;
+                padding: 15px 0;
+                margin: auto;
+                box-shadow: 0 0 20px 0px rgba(0, 0, 0, 0.1);
+                overflow: hidden;
+                border-radius: 8px;
+                opacity: .9;
+            }
+
+
+
+            #Indicator {
+                width: 100px;
+                border: none;
+                background: #04566E;
+                height: 3px;
+                margin-top: 8px;
+                transform: translateX(100px);
+                transition: transform 1s;
+            }
+
+            form .btn {
+                width: 100%;
+                border: none;
+                cursor: pointer;
+                margin: 10px 0;
+                height: auto;
+                font-size: 10px;
+            }
+
+            form .btn:focus {
+                outline: none;
+            }
+
+
+            #LoginForm {
+                text-align: center;
+                left: -400px;
+                width: 100%;
+            }
+
+            #RegForm {
+                text-align: center;
+                left: 0px;
+            }
+
+            .form-container span {
+                font-weight: bold;
+                padding: 0 10px;
+                color: #555;
+                cursor: pointer;
+                width: 100px;
+                display: inline-block;
+            }
+
+            .form-btn {
+                display: inline-block;
+                color: #04566E;
+            }
+
+            .form-container form {
+                text-align: center;
+                max-width: 400px;
+                padding: 0 20px;
+                position: absolute;
+                top: 130px;
+                transition: transform 1s;
+            }
+
+
+
+            form input{
+                    width: 100%; 
+                    height: 25px;
+                    margin: 10px 0;
+                    padding: 0 10px;
+                    box-sizing: border-box;
+                    border: 1px solid #ccc;
+                    border-radius: 4px;
+                    outline: none;
+                    transition: border-color 0.3s;
+                    font-weight: 10px;
+            }
+
+            form input:focus {
+                    border-color: #4CAF50;
+            }
+            
+            form input:hover{
+                    box-shadow: 0 0 5px rgba(0, 0, 0, 0.3);
+                    caret-color: #00ff00;
+            } 
+
+
+            form a {
+                    text-decoration: none;
+                    font-size: 12px;
+                    padding-top: 10px;
+                    display: block;
+                    color:  #04566E;
+            }
+
+            form a:hover{
+                    color: rgb(34, 34, 182);
+                    font-size: 14px;
+            }
+
+
+     
+
+        }
+
+        @media (max-width: 768px) {
+            
+            .account-page {
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+                width: 80%;
+                max-width: 1100px;
+                padding: 10px 0;
+            }
+           
+
+            .brand-container img {
+                width: 90px;
+                height: auto;
+                margin-bottom: 20px;
+            }
+
+            .message-container{
+                background: #fff;
+                width: 100%;
+                max-width: 400px;
+                position: relative;
+                text-align: center;
+                padding: 10px;
+                margin: 20px auto;
+                box-shadow: 0 0 20px 0px rgba(0, 0, 0, 0.1);
+                overflow: hidden;
+                border-radius: 8px;
+                opacity: .9;
+                margin-top: -25px;
+                color: red;
+                font-size: 15px;
+
+             }
+
+ 
+            .close-btn {
+                position: absolute;
+                top: 10px;
+                right: -40px;
+                cursor: pointer;
+                font-size: 10px;
+                font-weight: bold;
+                color: red;
+            }
+
+            .form-container {
+                background: #fff;
+                width: 300px;
+                height: 400px; /* Adjust the height as needed */
+                position: relative;
+                text-align: center;
+                padding: 15px 0;
+                margin: auto;
+                box-shadow: 0 0 20px 0px rgba(0, 0, 0, 0.1);
+                overflow: hidden;
+                border-radius: 8px;
+                opacity: .9;
+
+            }
+
+
+
+            #Indicator {
+                width: 100px;
+                border: none;
+                background: #04566E;
+                height: 3px;
+                margin-top: 8px;
+                transform: translateX(100px);
+                transition: transform 1s;
+            }
+
+            form .btn {
+                height: auto;
+                width: 100%;
+                border: none;
+                cursor: pointer;
+                margin: 10px 0;
+                font-size: 10px;
+               ;
+            }
+
+            form .btn:focus {
+                outline: none;
+            }
+
+
+            #LoginForm {
+                text-align: center;
+                left: -400px;
+                width: 100%;
+            }
+
+            #RegForm {
+                text-align: center;
+                left: 0px;
+            }
+
+            .form-container span {
+                font-weight: bold;
+                padding: 0 10px;
+                color: #555;
+                cursor: pointer;
+                width: 100px;
+                display: inline-block;
+            }
+
+            .form-btn {
+                display: inline-block;
+                color: #04566E;
+                font-size: 15px;
+
+            }
+
+            .form-container form {
+                text-align: center;
+                max-width: 400px;
+                padding: 0 20px;
+                position: absolute;
+                top: 130px;
+                transition: transform 1s;
+            }
+
+
+
+            form input{
+                    width: 100%; 
+                    height: 20px;
+                    margin: 10px 0;
+                    padding: 0 10px;
+                    box-sizing: border-box;
+                    border: 1px solid #ccc;
+                    border-radius: 4px;
+                    outline: none;
+                    transition: border-color 0.3s;
+                    font-weight: 10px;
+                    font-size: 10px;
+            }
+
+            form input:focus {
+                    border-color: #4CAF50;
+            }
+            
+            form input:hover{
+                    box-shadow: 0 0 5px rgba(0, 0, 0, 0.3);
+                    caret-color: #00ff00;
+            } 
+
+
+            form a {
+                    text-decoration: none;
+                    font-size: 9px;
+                    padding-top: 10px;
+                    display: block;
+                    color:  #04566E;
+            }
+
+            form a:hover{
+                    color: rgb(34, 34, 182);
+                    font-size: 14px;
+            }
+
+            
+
+        }
+
+
+
+
+
+    </style>
+</head>
+<body id="_background_">
+
+    
+
+    
+    <div class="account-page" id="content">
+
+
+       
+
+        <div class="brand-container">
+            <img src="{% static 'banner/logo/logo.jpg' %}" alt="Logo" style="border-radius: 30%;">
+            <!-- <h1>Ach'z SaGaCiTy</h1> -->
+        </div>
+
+
+             <div class="form-container">
+ 
+                    
+                        
+                {% if messages %}
+                    <div class="message-container" id="message-container">
+                        <span class="close-btn" onclick="closeMessage()">×</span>
+                        <!-- {% for message in messages %} -->
+                            <li style="list-style: none;" class="{{ message.tags }}">{{ message }}</li>
+                        <!-- {% endfor %} -->
+                    </div>
+                 {% endif %}
+   
+
+                        <div class="form-btn">
+                            <span onclick="login()">Login</span>
+                            <span onclick="register()">Register</span>
+                            <hr id="Indicator">
+                        </div>
+
+                        <!-- Login -->
+
+                        <form id="LoginForm" method="POST" enctype="multipart/form-data">
+                           {% csrf_token %}
+                            <input type="text" placeholder="Username" name="username" required>
+                            <input type="password" placeholder="Password" name="password" required>
+                            <button type="submit" class="btn" name="login">Login</button>
+                            <a href="#" class="forgot-pass">Forget Password</a>
+                            <a href="#">Terms of use. Privacy policy</a>
+                            <a href="#">Help?</a>
+                            
+
+                        <!-- Register -->
+
+                        </form>
+
+                        <form action="" id="RegForm" method="POST" enctype="multipart/form-data">
+                            {% csrf_token %}
+                            <input type="text" placeholder="Name" name="name" required>
+                            <input type="text" placeholder="Username" name="username" required>
+                            <input type="email" placeholder="Email" name="email" required>
+                            <input type="password" placeholder="Password" name="password" minlength="8" required> 
+                            <button type="submit" class="btn" name="register">Register</button>
+                            <a href="#">Terms of use. Privacy policy</a>
+                            <a href="#">Help?</a>
+                           
+                        </form>
+                    </div>
+    </div>
+
+
+
+
+
+    
+  
+<script>
+
+
+
+
+// changing background frequently
+
+        
+
+
+        // login and register
+
+        var LoginForm = document.getElementById("LoginForm");
+        var RegForm = document.getElementById("RegForm");
+        var Indicator = document.getElementById("Indicator");
+        function register() {
+            RegForm.style.transform = "translatex(0px)";
+            LoginForm.style.transform = "translatex(0px)";
+            Indicator.style.transform = "translateX(100px)";
+
+        }
+        function login() {
+            RegForm.style.transform = "translatex(400px)";
+            LoginForm.style.transform = "translatex(400px)";
+            Indicator.style.transform = "translate(0px)";
+
+        }
+
+    function closeMessage() {
+        var messageContainer = document.getElementById('message-container');
+        messageContainer.style.display = 'none';
+    }
+
+</script> 
+
+</body>
+</html>

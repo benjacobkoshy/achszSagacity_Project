@@ -1,0 +1,87 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <!-- Add the necessary CSS files -->
+  <link href="{% static 'assets/vendor/bootstrap/css/bootstrap.min.css' %}" rel="stylesheet">
+  <link href="{% static 'assets/vendor/bootstrap-icons/bootstrap-icons.css' %}" rel="stylesheet">
+  <link href="{% static 'assets/css/main.css' %}" rel="stylesheet">
+  <style>
+    .logo {
+        display: flex;
+        align-items: center;
+        text-decoration: none; /* Ensures no underline on the link */
+    }
+
+    .sitename {
+        font-size: 2rem; /* Default font size for larger screens */
+    }
+
+    @media (max-width: 768px) {
+        .sitename {
+            font-size: 1.5rem; /* Adjust font size for medium screens (e.g., tablets) */
+        }
+    }
+
+    @media (max-width: 576px) {
+        .sitename {
+            font-size: 1rem; /* Adjust font size for small screens (e.g., smartphones) */
+        }
+    }
+</style>
+
+</head>
+<body>
+
+<header id="header" class="header d-flex align-items-center sticky-top">
+  <div class="container-fluid container-xl position-relative d-flex align-items-center">
+    <a href="{% url 'home' %}" class="logo d-flex align-items-center me-auto text-decoration-none">
+        <img src="{% static 'banner/logo/logo.jpg' %}" alt="">
+        <h1 class="sitename">
+            <span>Ach'z</span><br>
+            <span>SaGaCiTy</span>
+        </h1>
+    </a>
+    
+    
+    
+ 
+    
+      <nav id="navmenu" class="navmenu">
+          <ul>
+              <li><a href="{% url 'home' %}" style="text-decoration: none;">Home</a></li>
+              <li><a href="{% url 'about' %}" style="text-decoration: none;">About</a></li>
+              <li><a href="{% url 'courses' %}" style="text-decoration: none;">Courses</a></li>
+              <li><a href="{% url 'trainers' %}" style="text-decoration: none;">Trainers</a></li>
+              <li><a href="" style="color: gray; text-decoration: none;" >Events</a></li>
+              <li><a href="{% url 'materials' %}" style="text-decoration: none;">Materials</a></li>
+              <li><a href="{% url 'contact' %}" style="text-decoration: none;">Contact</a></li>
+              {% if user.is_authenticated %}
+                <li><a href="{% url 'logout' %}">Logout</a></li>
+                <a href="#">
+                    <img src="{{ user.customer_profile.image.url }}" style="height: 40px; width: 40px; border-radius: 30%;">
+                </a>
+                <b style="color: black; font-size: medium; margin-left: 10px;">{{ user.username }}</b>
+                {% else %}
+                <a class="btn-getstarted" href="{% url 'account' %}">Login</a>
+       
+              {% endif %}
+          </ul>
+          <i class="mobile-nav-toggle d-xl-none bi bi-list"></i>
+      </nav>
+      <div class="btn-getstarted" style="background-color: #fff; display: flex; box-shadow: 1px 1px 1px 1px solid black;">
+      
+    </div>
+    
+  </div>
+</header>
+
+<!-- Add the necessary JS files -->
+<script src="{% static 'assets/vendor/bootstrap/js/bootstrap.bundle.min.js' %}"></script>
+<script src="{% static 'assets/js/main.js' %}"></script>
+
+</body>
+</html>

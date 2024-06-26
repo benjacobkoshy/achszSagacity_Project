@@ -1,0 +1,238 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta content="width=device-width, initial-scale=1.0" name="viewport">
+  <title>Course Details - {{ course.name }}</title>
+  <meta content="" name="description">
+  <meta content="" name="keywords">
+
+    <!-- Favicons -->
+    <link href="{% static 'assets/img/favicon.png' %}" rel="icon">
+    <link href="{% static 'assets/img/apple-touch-icon.png' %}" rel="apple-touch-icon">
+  
+    <!-- Fonts -->
+    <link href="https://fonts.googleapis.com" rel="preconnect">
+    <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,300;1,400;1,500;1,600;1,700;1,800&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Raleway:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+  
+    <!-- Vendor CSS Files -->
+    <link href="{% static 'assets/vendor/bootstrap/css/bootstrap.min.css' %}" rel="stylesheet">
+    <link href="{% static 'assets/vendor/bootstrap-icons/bootstrap-icons.css' %}" rel="stylesheet">
+    <link href="{% static 'assets/vendor/aos/aos.css' %}" rel="stylesheet">
+    <link href="{% static 'assets/vendor/glightbox/css/glightbox.min.css' %}" rel="stylesheet">
+    <link href="{% static 'assets/vendor/swiper/swiper-bundle.min.css' %}" rel="stylesheet">
+  
+    <!-- Main CSS File -->
+    <link href="{% static 'assets/css/main.css' %}" rel="stylesheet">
+
+
+</head>
+
+<body class="course-details-page">
+
+ {% include 'top.html' %}
+
+  <main class="main">
+
+    <!-- Page Title -->
+    <div class="page-title" data-aos="fade">
+      <div class="heading">
+        <div class="container">
+          <div class="row d-flex justify-content-center text-center">
+            <div class="col-lg-8">
+              <h1>Course Details</h1>
+              <p class="mb-0">Welcome to our {{ course.name }} Details page, where you can explore in-depth information about our courses designed to enhance your English language proficiency. We are dedicated to providing top-quality training tailored for success in {{ course.name }}. Our experienced trainers ensure comprehensive preparation in Listening, Reading, Writing, and Speaking, guiding you towards achieving your language goals.</p>
+            </div>
+          </div>
+       
+      </div>
+    </div><!-- End Page Title -->
+      <nav class="breadcrumbs">
+        <div class="container">
+          <ol>
+            <li><a href="{% url 'home' %}">Home</a></li>
+            <li class="current">Course Details</li>
+          </ol>
+        </div>
+      </nav>
+    </div><!-- End Page Title -->
+
+    <!-- Courses Course Details Section -->
+    <section id="courses-course-details" class="courses-course-details section">
+
+      <div class="container" data-aos="fade-up">
+
+        <div class="row">
+
+    
+          <div class="col-lg-8">
+            <img src="{{ course.course_image.url }}" class="img-fluid" alt="">
+            <h3>{{ course.detailed_name }}</h3>
+            <p>
+                {{ course.description }}
+            </p>
+          </div>
+        
+          <div class="col-lg-4">
+
+            <div class="course-info d-flex justify-content-between align-items-center">
+              <h5>Trainer</h5>
+              <p><a href="{% url 'trainers' %}">{{ course.trainer_name }}</a></p>
+            </div>
+
+            <div class="course-info d-flex justify-content-between align-items-center">
+              <h5>Course Fee</h5>
+              <p>Rs{{ course.price }}</p>
+            </div>
+
+            <div class="course-info d-flex justify-content-between align-items-center">
+              <h5>Available Seats</h5>
+              <p>--</p>
+            </div>
+
+            <div class="course-info d-flex justify-content-between align-items-center">
+              <h5>Schedule</h5>
+              <p>--</p>
+            </div>
+
+            <!-- Whatsapp Booking -->
+            <div>
+              <a href="https://api.whatsapp.com/send?phone=918301018703&text=Hello%2C%20I%20am%20interested%20in%20the%20IELTS%20course.%20Could%20you%20please%20provide%20more%20details%20and%20the%20cost%20information%3F" 
+                class="btn-get-started" 
+                target="_blank"
+                style="text-decoration: none;">
+                Register for {{ course.name }} Course
+              </a>
+              
+            </div>
+
+            <!--  -->
+
+            <div>
+              <a href="{% url 'materials' course.id course.name %}" class="btn-get-started" style="text-decoration: none;">
+                Study Materials for {{ course.name }} Course
+              </a>
+            </div>
+           
+          
+
+
+
+          </div>
+        </div>
+
+      </div>
+
+    </section><!-- /Courses Course Details Section -->
+
+    <!-- Tabs Section -->
+    <section id="tabs" class="tabs section">
+      <div class="container" data-aos="fade-up" data-aos-delay="100">
+        <div class="row">
+          <div class="col-lg-3">
+            <ul class="nav nav-tabs flex-column">
+              <li class="nav-item">
+                <a class="nav-link active show" data-bs-toggle="tab" href="#tab-1">Reading</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" data-bs-toggle="tab" href="#tab-2">Writing</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" data-bs-toggle="tab" href="#tab-3">Speaking</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" data-bs-toggle="tab" href="#tab-4">Listening</a>
+              </li>
+            </ul>
+          </div>
+          <div class="col-lg-9 mt-4 mt-lg-0">
+            <div class="tab-content">
+              <div class="tab-pane active show" id="tab-1">
+                <div class="row">
+                  <div class="col-lg-8 details order-2 order-lg-1">
+                    <h3>Reading Skills: Enhancing Comprehension</h3>
+                    <p class="fst-italic">Develop strategies to improve reading comprehension and critical analysis of texts.</p>
+                    <p>Explore techniques for skimming, scanning, and understanding different types of written material, from academic texts to articles and fiction.</p>
+                  </div>
+                  <div class="col-lg-4 text-center order-1 order-lg-2">
+                    <img src="{% static 'assets/img/tabs/tab-1.png' %}" alt="Reading Skills" class="img-fluid">
+                  </div>
+                </div>
+              </div>
+              <div class="tab-pane" id="tab-2">
+                <div class="row">
+                  <div class="col-lg-8 details order-2 order-lg-1">
+                    <h3>Writing Skills: Crafting Clear and Cohesive Texts</h3>
+                    <p class="fst-italic">Master the art of effective writing, from structuring essays to composing professional emails.</p>
+                    <p>Learn grammar essentials, refine vocabulary usage, and practice different writing styles suitable for various purposes and audiences.</p>
+                  </div>
+                  <div class="col-lg-4 text-center order-1 order-lg-2">
+                    <img src="{% static 'assets/img/tabs/tab-2.png' %}" alt="Writing Skills" class="img-fluid">
+                  </div>
+                </div>
+              </div>
+              <div class="tab-pane" id="tab-3">
+                <div class="row">
+                  <div class="col-lg-8 details order-2 order-lg-1">
+                    <h3>Speaking Skills: Improving Oral Communication</h3>
+                    <p class="fst-italic">Enhance fluency and confidence in spoken English through interactive exercises and discussions.</p>
+                    <p>Practice pronunciation, intonation, and conversational skills to express ideas clearly and engage effectively in both formal and informal settings.</p>
+                  </div>
+                  <div class="col-lg-4 text-center order-1 order-lg-2">
+                    <img src="{% static 'assets/img/tabs/tab-3.png' %}" alt="Speaking Skills" class="img-fluid">
+                  </div>
+                </div>
+              </div>
+              <div class="tab-pane" id="tab-4">
+                <div class="row">
+                  <div class="col-lg-8 details order-2 order-lg-1">
+                    <h3>Listening Skills: Understanding and Responding</h3>
+                    <p class="fst-italic">Develop active listening techniques to comprehend spoken English in various contexts.</p>
+                    <p>Practice listening for gist, specific information, and inference while honing note-taking skills. Improve your ability to follow lectures, conversations, and audio materials effectively.</p>
+                  </div>
+                  <div class="col-lg-4 text-center order-1 order-lg-2">
+                    <img src="{% static 'assets/img/tabs/tab-4.png' %}" alt="Listening Skills" class="img-fluid">
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- /Tabs Section -->
+
+    <section id="tabs" class="tabs section">
+      {% include 'course-videos.html' with course=course page_obj=page_obj %}
+    </section>
+
+   
+  </main>
+
+ 
+{% include 'footer.html' %}
+
+
+  <!-- Scroll Top -->
+  <a href="#" id="scroll-top" class="scroll-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
+
+  <!-- Preloader -->
+  <div id="preloader"></div>
+
+  <!-- Vendor JS Files -->
+  <script src="{% static 'assets/vendor/bootstrap/js/bootstrap.bundle.min.js' %}"></script>
+  <script src="{% static 'assets/vendor/php-email-form/validate.js' %}"></script>
+  <script src="{% static 'assets/vendor/aos/aos.js' %}"></script>
+  <script src="{% static 'assets/vendor/glightbox/js/glightbox.min.js' %}"></script>
+  <script src="{% static 'assets/vendor/purecounter/purecounter_vanilla.js' %}"></script>
+  <script src="{% static 'assets/vendor/swiper/swiper-bundle.min.js' %}"></script>
+
+  <!-- Main JS File -->
+  <script src="{% static 'assets/js/main.js' %}"></script>
+
+</body>
+
+</html>

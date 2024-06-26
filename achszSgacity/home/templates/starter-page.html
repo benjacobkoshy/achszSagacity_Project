@@ -1,0 +1,146 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta content="width=device-width, initial-scale=1.0" name="viewport">
+  <title>Starter Page - Mentor Bootstrap Template</title>
+  <meta content="" name="description">
+  <meta content="" name="keywords">
+
+    <!-- Favicons -->
+    <link href="{% static 'assets/img/favicon.png' %}" rel="icon">
+    <link href="{% static 'assets/img/apple-touch-icon.png' %}" rel="apple-touch-icon">
+  
+    <!-- Fonts -->
+    <link href="https://fonts.googleapis.com" rel="preconnect">
+    <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,300;1,400;1,500;1,600;1,700;1,800&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Raleway:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+  
+    <!-- Vendor CSS Files -->
+    <link href="{% static 'assets/vendor/bootstrap/css/bootstrap.min.css' %}" rel="stylesheet">
+    <link href="{% static 'assets/vendor/bootstrap-icons/bootstrap-icons.css' %}" rel="stylesheet">
+    <link href="{% static 'assets/vendor/aos/aos.css' %}" rel="stylesheet">
+    <link href="{% static 'assets/vendor/glightbox/css/glightbox.min.css' %}" rel="stylesheet">
+    <link href="{% static 'assets/vendor/swiper/swiper-bundle.min.css' %}" rel="stylesheet">
+  
+    <!-- Main CSS File -->
+    <link href="{% static 'assets/css/main.css' %}" rel="stylesheet">
+
+
+</head>
+
+<body class="starter-page-page">
+
+ {% include 'top.html' %}
+
+
+ <main class="main">
+
+  <!-- Page Title -->
+  <div class="page-title" data-aos="fade">
+    <div class="heading">
+      <div class="container">
+        <div class="row d-flex justify-content-center text-center">
+          <div class="col-lg-8">
+            <h1>Get Started with Ach'z SaGaCiTy</h1>
+            <p class="mb-0">Unlock your potential with our expert guidance and comprehensive IELTS training programs.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+    <nav class="breadcrumbs">
+      <div class="container">
+        <ol>
+          <li><a href="index.html">Home</a></li>
+          <li class="current">Get Started</li>
+        </ol>
+      </div>
+    </nav>
+  </div><!-- End Page Title -->
+
+  <!-- Starter Section Section -->
+  <section id="starter-section" class="starter-section section">
+
+    <!-- Section Title -->
+    <div class="container section-title" data-aos="fade-up">
+      <h2>Begin Your IELTS Journey</h2>
+      <p>Discover our personalized approach to IELTS preparation, designed to help you achieve your highest potential.</p>
+    </div><!-- End Section Title -->
+
+    <div class="container" data-aos="fade-up">
+      <div class="row">
+        <div class="col-lg-6">
+          <h3>Why Choose Us?</h3>
+          <ul>
+            <li><i class="bi bi-check-circle"></i> <span>Expert trainers with years of experience in IELTS coaching.</span></li>
+            <li><i class="bi bi-check-circle"></i> <span>Customized study plans to suit your learning style and pace.</span></li>
+            <li><i class="bi bi-check-circle"></i> <span>Access to the latest and most comprehensive study materials.</span></li>
+            <li><i class="bi bi-check-circle"></i> <span>Regular feedback and progress assessments to keep you on track.</span></li>
+          </ul>
+        </div>
+        <div class="col-lg-6">
+          <h3>Our Training Programs</h3>
+          <p>We offer a variety of training programs to fit your schedule and learning needs:</p>
+          <ul>
+            <li><i class="bi bi-check-circle"></i> <span>One-on-one personalized coaching sessions.</span></li>
+            <li><i class="bi bi-check-circle"></i> <span>Group classes for collaborative learning.</span></li>
+            <li><i class="bi bi-check-circle"></i> <span>Intensive crash courses for quick preparation.</span></li>
+            <li><i class="bi bi-check-circle"></i> <span>Flexible online classes accessible 24/7.</span></li>
+          </ul>
+        </div>
+      </div>
+      <div class="row mt-4">
+        <div class="col-lg-12 text-center">
+          <h3>Get Started Today!</h3>
+          <p>Take the first step towards your IELTS success. Contact us to learn more about our programs and how we can help you achieve your goals.</p>
+          <a href="{% url 'contact' %}" class="btn btn-primary">Contact Us</a>
+        </div>
+      </div>
+      
+      <div class="row mt-4">
+
+        <div class="col-lg-12 text-center">
+            <h3>Our Courses</h3>
+            <p>
+                Achieve your desired IELTS scores with our expert-led courses. Our comprehensive programs are designed to meet your unique 
+                learning needs and help you succeed. Whether you are just starting or looking to improve your scores, we have the right course
+                 for you. Get personalized training, access to extensive study materials, and regular assessments to track your progress. 
+                <br><br>
+                Contact us today to learn more about our programs and how we can help you achieve your goals.
+            </p>
+            <a href="{% url 'courses' %}" class="btn btn-primary">Courses</a>
+        </div>
+    </div>
+    
+    </div>
+
+  </section><!-- /Starter Section Section -->
+
+</main>
+
+
+  
+{% include 'footer.html' %}
+
+  <!-- Scroll Top -->
+  <a href="#" id="scroll-top" class="scroll-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
+
+  <!-- Preloader -->
+  <div id="preloader"></div>
+
+  <!-- Vendor JS Files -->
+  <script src="{% static 'assets/vendor/bootstrap/js/bootstrap.bundle.min.js' %}"></script>
+  <script src="{% static 'assets/vendor/php-email-form/validate.js' %}"></script>
+  <script src="{% static 'assets/vendor/aos/aos.js' %}"></script>
+  <script src="{% static 'assets/vendor/glightbox/js/glightbox.min.js' %}"></script>
+  <script src="{% static 'assets/vendor/purecounter/purecounter_vanilla.js' %}"></script>
+  <script src="{% static 'assets/vendor/swiper/swiper-bundle.min.js' %}"></script>
+
+  <!-- Main JS File -->
+  <script src="{% static 'assets/js/main.js' %}"></script>
+
+</body>
+
+</html>

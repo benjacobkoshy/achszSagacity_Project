@@ -1,0 +1,364 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Footer</title>
+
+    <!-- Vendor CSS Files -->
+  <link href="{% static 'assets/vendor/bootstrap/css/bootstrap.min.css' %}" rel="stylesheet">
+  <link href="{% static 'assets/vendor/bootstrap-icons/bootstrap-icons.css' %}" rel="stylesheet">
+  <link href="{% static 'assets/vendor/aos/aos.css' %}" rel="stylesheet">
+  <link href="{% static 'assets/vendor/glightbox/css/glightbox.min.css' %}" rel="stylesheet">
+  <link href="{% static 'assets/vendor/swiper/swiper-bundle.min.css' %}" rel="stylesheet">
+
+  <!-- Main CSS File -->
+  <link href="{% static 'assets/css/main.css' %}" rel="stylesheet">
+
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+  <style>
+ .popup-container {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 9999;
+    justify-content: center;
+    align-items: center;
+    overflow-y: auto; /* Enable vertical scrolling */
+}
+
+.popup-content {
+    background-color: #fff;
+    padding: 20px;
+    width: 90%; /* Adjust width as needed */
+    max-width: 600px; /* Max width for large screens */
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    position: relative;
+    overflow-y: auto; /* Enable content scrolling */
+    max-height: 80%; /* Max height to prevent full-screen overflow */
+}
+
+.close-btn {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    cursor: pointer;
+}
+
+.close-btn i {
+    font-size: 18px;
+    color: #555;
+}
+
+.close-btn i:hover {
+    color: #000;
+}
+
+
+ .btn-get-started {
+  font-weight: 500;
+  font-size: 15px;
+  text-decoration: none;
+  letter-spacing: 1px;
+  display: inline-block;
+  padding: 8px 35px 10px 35px;
+  border-radius: 50px;
+  transition: 0.4s;
+  margin-top: 30px;
+  border: 2px solid var(--default-color);
+  color: var(--default-color);
+}
+
+.btn-get-started:hover {
+  color: #fff;
+  background: var(--accent-color);
+  border: 2px solid var(--accent-color);
+}
+
+
+  </style>
+
+
+
+</head>
+<body>
+    
+
+        
+    <footer id="footer" class="footer position-relative">
+
+        <div class="container footer-top">
+          <div class="row gy-4">
+            <div class="col-lg-4 col-md-6 footer-about">
+              <a href="{% url 'home' %}" class="logo d-flex align-items-center">
+                <span class="sitename">Ach'z SaGaCiTy</span>
+              </a>
+              <div class="footer-contact pt-3">
+                <p>VADAVATHOOR</p>
+                <p>KOTTAYAM , KERALA</p>
+                <p class="mt-3"><strong>Phone:</strong> <a href="tel:+91 83010 18703" style="text-decoration: none; color: #000;"> +91 83010 18703</a></p>
+                <p><strong>Email:</strong> <a href="mailto:achzsagacity@gmail.com" style="text-decoration: none; color: #000;">achzsagacity@gmail.com</a></p>
+              </div>
+              <div class="social-links d-flex mt-4">
+                <a href=""><i class="bi bi-twitter-x"></i></a>
+                <a href="https://www.facebook.com/Achsajomu"><i class="bi bi-facebook"></i></a>
+                <a href="https://www.instagram.com/achz_linguaphile?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw=="><i class="bi bi-instagram"></i></a>
+                <a href=""><i class="bi bi-linkedin"></i></a>
+              </div>
+            </div>
+    
+            <div class="col-lg-2 col-md-3 footer-links">
+              <h4>Useful Links</h4>
+              <ul>
+                <li><a href="{% url 'home' %}">Home</a></li>
+                <li><a href="{% url 'about' %}">About us</a></li>
+                <li><a href="#" >Services</a></li>
+                <li><a id="terms-link" style="cursor: pointer;">Terms of service</a></li>
+                <li><a id="privacy-link" style="cursor: pointer;">Privacy policy</a></li>
+              </ul>
+            </div>
+    
+            <!-- <div class="col-lg-2 col-md-3 footer-links">
+              <h4>Our Services</h4>
+              <ul>
+                <li><a href="#">Web Design</a></li>
+                <li><a href="#">Web Development</a></li>
+                <li><a href="#">Product Management</a></li>
+                <li><a href="#">Marketing</a></li>
+                <li><a href="#">Graphic Design</a></li>
+              </ul>
+            </div> -->
+    
+            <div class="col-lg-4 col-md-12 footer-newsletter">
+              <h4>Our YouTube Channel</h4>
+              <p>Subscribe to our YouTube Channel and receive the latest news about our products and services!</p>
+             
+                
+                  <a href="https://youtube.com/@ieltsachzsagacity?si=ZCtcNjQqrzG86zSS" class="btn-get-started" style="text-decoration: none;">Subscribe</a>
+                  
+               
+               
+              
+            </div>
+    
+          </div>
+        </div>
+    
+        <div class="container copyright text-center mt-4">
+          <p>© <span>Copyright</span> <strong class="px-1 sitename">Ach'z SaGaCiTy</strong> <span>All Rights Reserved</span></p>
+          <div class="credits">
+          
+            Designed by <a href="https://www.google.com/url?sa=i&url=https%3A%2F%2Fin.linkedin.com%2Fin%2Fben-jacob-koshy-b1a87b227&psig=AOvVaw2zv4bxBITSkN-UTHOUhZ1c&ust=1713101057940000&source=images&cd=vfe&opi=89978449&ved=0CAcQrpoMahcKEwjAnKX3pL-FAxUAAAAAHQAAAAAQBA">BEN TECH</a>
+          </div>
+        </div>
+    
+      </footer>
+    
+
+
+
+      <div class="popup-container" id="terms-popup">
+        <div class="popup-content">
+            <div class="close-btn" id="close-terms-popup"><i class="fas fa-times"></i></div>
+            <div class="container">
+            <h1>Terms of Service - Ach'z SaGaCiTy</h1>
+    
+            <h2>1. License to Use</h2>
+            <p>1.1. Unless otherwise stated, Ach'z SaGaCiTy and/or its licensors own the intellectual property rights for all material on Ach'z SaGaCiTy. All intellectual property rights are reserved. You may access this from Ach'z SaGaCiTy for your own personal use subjected to restrictions set in these terms and conditions.</p>
+    
+            <h2>2. Restrictions</h2>
+            <p>2.1. You are specifically restricted from all of the following:</p>
+            <ul>
+                <li>Publishing any website material in any other media;</li>
+                <li>Selling, sublicensing and/or otherwise commercializing any website material;</li>
+                <li>Publicly performing and/or showing any website material;</li>
+                <li>Using this website in any way that is or may be damaging to this website;</li>
+                <li>Using this website in any way that impacts user access to this website;</li>
+                <li>Using this website contrary to applicable laws and regulations, or in any way may cause harm to the website, or to any person or business entity;</li>
+                <li>Engaging in any data mining, data harvesting, data extracting or any other similar activity in relation to this website;</li>
+                <li>Using this website to engage in any advertising or marketing.</li>
+            </ul>
+    
+            <h2>3. Your Content</h2>
+            <p>3.1. In these Website Standard Terms and Conditions, "Your Content" shall mean any audio, video text, images or other material you choose to display on this Website. By displaying Your Content, you grant Ach'z SaGaCiTy a non-exclusive, worldwide irrevocable, sub-licensable license to use, reproduce, adapt, publish, translate and distribute it in any and all media.</p>
+            <p>3.2. Your Content must be your own and must not be invading any third-party's rights. Ach'z SaGaCiTy reserves the right to remove any of Your Content from this Website at any time without notice.</p>
+    
+            <h2>4. No warranties</h2>
+            <p>4.1. This Website is provided "as is," with all faults, and Ach'z SaGaCiTy makes no express or implied representations or warranties, of any kind related to this Website or the materials contained on this Website. Additionally, nothing contained on this Website shall be construed as providing consult or advice to you.</p>
+    
+            <h2>5. Limitation of liability</h2>
+            <p>5.1. In no event shall Ach'z SaGaCiTy, nor any of its officers, directors and employees, be held liable for anything arising out of or in any way connected with your use of this Website whether such liability is under contract. Ach'z SaGaCiTy, including its officers, directors and employees shall not be held liable for any indirect, consequential or special liability arising out of or in any way related to your use of this Website.</p>
+    
+            <h2>6. Indemnification</h2>
+            <p>6.1. You hereby indemnify to the fullest extent Ach'z SaGaCiTy from and against any and/or all liabilities, costs, demands, causes of action, damages and expenses arising in any way related to your breach of any of the provisions of these Terms.</p>
+    
+            <h2>7. Severability</h2>
+            <p>7.1. If any provision of these Terms is found to be invalid under any applicable law, such provisions shall be deleted without affecting the remaining provisions herein.</p>
+    
+            <h2>8. Variation of Terms</h2>
+            <p>8.1. Ach'z SaGaCiTy is permitted to revise these Terms at any time as it sees fit, and by using this Website you are expected to review these Terms on a regular basis.</p>
+    
+            <h2>9. Assignment</h2>
+            <p>9.1. The Ach'z SaGaCiTy is allowed to assign, transfer, and subcontract its rights and/or obligations under these Terms without any notification. However, you are not allowed to assign, transfer, or subcontract any of your rights and/or obligations under these Terms.</p>
+    
+            <h2>10. Entire Agreement</h2>
+            <p>10.1. These Terms constitute the entire agreement between Ach'z SaGaCiTy and you in relation to your use of this Website, and supersede all prior agreements and understandings.</p>
+    
+            <h2>11. Governing Law & Jurisdiction</h2>
+            <p>11.1. These Terms will be governed by and interpreted in accordance with the laws of [Your Country], and you submit to the non-exclusive jurisdiction of the state and federal courts located in [Your Country] for the resolution of any disputes.</p>
+    
+            <p>These Terms of Service have been generated at TermsFeed Generator.</p>
+    
+            <p>If you have any questions about these Terms, please contact us.</p>
+    
+            <p>By clicking "I Agree" or continuing to use the site, you agree to abide by these Terms of Service.</p>
+        
+         
+        </div>
+      </div>
+  </div>
+  
+
+
+
+    <!-- Privacy Policy -->
+
+
+    <div class="popup-container" id="privacy-popup">
+      <div class="popup-content">
+          <div class="close-btn" id="close-privacy-popup"><i class="fas fa-times"></i></div>
+          <div class="container">
+            <h1>Privacy Policy - Ach'z SaGaCiTy</h1>
+
+            <p>Your privacy is important to us. It is Ach'z SaGaCiTy's policy to respect your privacy regarding any information we may collect from you across our website, [Your Website URL], and other sites we own and operate.</p>
+
+            <h2>Information We Collect</h2>
+
+            <p>We only collect information about you if we have a reason to do so, for example, to provide our services, to communicate with you, or to improve our services.</p>
+
+            <h2>How We Use Your Information</h2>
+
+            <p>We use the information we collect in various ways, including to:</p>
+            <ul>
+                <li>Provide, operate, and maintain our website</li>
+                <li>Improve, personalize, and expand our website</li>
+                <li>Understand and analyze how you use our website</li>
+                <li>Develop new products, services, features, and functionality</li>
+                <li>Communicate with you, either directly or through one of our partners, including for customer service, to provide you with updates and other information relating to the website, and for marketing and promotional purposes</li>
+                <li>Send you emails</li>
+                <li>Find and prevent fraud</li>
+            </ul>
+
+            <h2>Log Files</h2>
+
+            <p>Ach'z SaGaCiTy follows a standard procedure of using log files. These files log visitors when they visit websites. All hosting companies do this and a part of hosting services' analytics. The information collected by log files include internet protocol (IP) addresses, browser type, Internet Service Provider (ISP), date and time stamp, referring/exit pages, and possibly the number of clicks. These are not linked to any information that is personally identifiable. The purpose of the information is for analyzing trends, administering the site, tracking users' movement on the website, and gathering demographic information.</p>
+
+            <h2>Cookies and Web Beacons</h2>
+
+            <p>Like any other website, Ach'z SaGaCiTy uses 'cookies'. These cookies are used to store information including visitors' preferences, and the pages on the website that the visitor accessed or visited. The information is used to optimize the users' experience by customizing our web page content based on visitors' browser type and/or other information.</p>
+
+            <h2>Advertising Partners Privacy Policies</h2>
+
+            <p>You may consult this list to find the Privacy Policy for each of the advertising partners of Ach'z SaGaCiTy.</p>
+
+            <h2>Third Party Privacy Policies</h2>
+
+            <p>Ach'z SaGaCiTy's Privacy Policy does not apply to other advertisers or websites. Thus, we are advising you to consult the respective Privacy Policies of these third-party ad servers for more detailed information. It may include their practices and instructions about how to opt-out of certain options.</p>
+
+            <h2>Consent</h2>
+
+            <p>By using our website, you hereby consent to our Privacy Policy and agree to its terms.</p>
+
+            <h2>Updates</h2>
+
+            <p>This Privacy Policy was last updated on [Date of Last Update]. If there will be any update, amendment, or changes to our Privacy Policy then these will be posted on this page.</p>
+
+            <p>If you have additional questions or require more information about our Privacy Policy, do not hesitate to contact us through email at [Your Contact Email].</p>
+      
+    
+            
+         
+        </div>
+      </div>
+    </div>
+
+    
+    
+      <!-- Vendor JS Files -->
+      <script src="{% static 'assets/vendor/bootstrap/js/bootstrap.bundle.min.js' %}"></script>
+      <script src="{% static 'assets/vendor/php-email-form/validate.js' %}"></script>
+      <script src="{% static 'assets/vendor/aos/aos.js' %}"></script>
+      <script src="{% static 'assets/vendor/glightbox/js/glightbox.min.js' %}"></script>
+      <script src="{% static 'assets/vendor/purecounter/purecounter_vanilla.js' %}"></script>
+      <script src="{% static 'assets/vendor/swiper/swiper-bundle.min.js' %}"></script>
+    
+      <!-- Main JS File -->
+      <script src="{% static 'assets/js/main.js' %}"></script>
+
+
+
+
+      <!-- Terms and Conditions -->
+      
+      
+
+
+
+
+      <script>
+        
+            
+document.addEventListener('DOMContentLoaded', function() {
+  // Elements
+  const termsLink = document.getElementById('terms-link');
+  const privacyLink = document.getElementById('privacy-link');
+  const termsPopup = document.getElementById('terms-popup');
+  const privacyPopup = document.getElementById('privacy-popup');
+  const closeTermsPopup = document.getElementById('close-terms-popup');
+  const closePrivacyPopup = document.getElementById('close-privacy-popup');
+
+  // Event listeners
+  termsLink.addEventListener('click', function() {
+      termsPopup.style.display = 'flex';
+  });
+
+  privacyLink.addEventListener('click', function() {
+      privacyPopup.style.display = 'flex';
+  });
+
+  closeTermsPopup.addEventListener('click', function() {
+      termsPopup.style.display = 'none';
+  });
+
+  closePrivacyPopup.addEventListener('click', function() {
+      privacyPopup.style.display = 'none';
+  });
+
+  // Close popup when clicking outside of content
+  termsPopup.addEventListener('click', function(event) {
+      if (event.target === termsPopup) {
+          termsPopup.style.display = 'none';
+      }
+  });
+
+  privacyPopup.addEventListener('click', function(event) {
+      if (event.target === privacyPopup) {
+          privacyPopup.style.display = 'none';
+      }
+  });
+});
+
+
+        
+      </script>
+    
+
+</body>
+</html>

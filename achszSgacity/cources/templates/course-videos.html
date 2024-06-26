@@ -1,0 +1,128 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Course Video - {{ course.name }}</title>
+    <meta name="description" content="Ach'z SaGaCiTy - Online English Language Training Platform with a 99.9% success rate. Expert trainers help students achieve high scores in IELTS and UKVI IELTS since 2017. Personalized training for Listening, Reading, Writing & Speaking skills.">
+    <meta name="keywords" content="Online English Language Training, IELTS training, UKVI IELTS, English proficiency, Experienced Trainers, Listening skills, Reading skills, Writing skills, Speaking skills, Personalized training, English courses, English language education, English test preparation">
+    <meta name="author" content="Ach'z SaGaCiTy">
+    <!-- Favicons -->
+    <link href="{% static 'assets/img/favicon.png' %}" rel="icon">
+    <link href="{% static 'assets/img/apple-touch-icon.png' %}" rel="apple-touch-icon">
+   
+    <!-- Fonts -->
+    <link href="https://fonts.googleapis.com" rel="preconnect">
+    <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900&display=swap" rel="stylesheet">
+
+    <!-- Main CSS File -->
+    <link href="{% static 'assets/css/main.css' %}" rel="stylesheet">
+
+    <style>
+        .course-videos {
+            padding: 20px;
+            background-color: #f8f9fa;
+        }
+
+        .videos-list {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+            justify-content: center;
+        }
+
+        .video-item {
+            flex: 0 1 300px;
+            background: #fff;
+            border: 1px solid #dee2e6;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s;
+        }
+
+        .video-item:hover {
+            transform: scale(1.05);
+        }
+
+        .video-item h3 {
+            font-size: 1.25rem;
+            margin: 10px;
+        }
+
+        .video-item p {
+            font-size: 1rem;
+            margin: 10px;
+            color: #6c757d;
+        }
+
+        .video-item iframe {
+            width: 100%;
+            height: 200px;
+            border: none;
+        }
+
+        .pagination {
+            text-align: center;
+            margin-top: 20px;
+        }
+
+        .pagination .step-links a,
+        .pagination .step-links .current {
+            margin: 0 5px;
+            padding: 5px 10px;
+            background: #007bff;
+            color: #fff;
+            text-decoration: none;
+            border-radius: 4px;
+        }
+
+        .pagination .step-links .current {
+            background: #6c757d;
+        }
+
+        .more-link {
+            text-align: center;
+            margin-top: 40px;
+        }
+
+        
+    </style>
+</head>
+<body>
+    <div class="course-videos">
+        <h2>Course Videos for {{ course.name }}</h2>
+        <div class="videos-list">
+            {% for video in page_obj %}
+                <div class="video-item">
+                    <h3>{{ video.title }}</h3>
+                    <p>{{ video.description }}</p>
+                    <iframe width="560" height="315" src="{{ video.embed_url }}" frameborder="0" allowfullscreen></iframe>
+                </div>
+            {% endfor %}
+        </div>
+        <div class="pagination">
+            <span class="step-links">
+                {% if page_obj.has_previous %}
+                    <a href="?page=1"><i class="bi bi-chevron-double-left"></i> First</a>
+                    <a href="?page={{ page_obj.previous_page_number }}"><i class="bi bi-chevron-left"></i> Previous</a>
+                {% endif %}
+
+                <span class="current">
+                    Page {{ page_obj.number }} of {{ page_obj.paginator.num_pages }}
+                </span>
+
+                {% if page_obj.has_next %}
+                    <a href="?page={{ page_obj.next_page_number }}">Next <i class="bi bi-chevron-right"></i></a>
+                    <a href="?page={{ page_obj.paginator.num_pages }}">Last <i class="bi bi-chevron-double-right"></i></a>
+                {% endif %}
+            </span>
+        </div>
+        <div class="more-link">
+            <a href="https://youtube.com/@ieltsachzsagacity?si=ZCtcNjQqrzG86zSS" class="btn-get-started">See more...</a>
+        </div>
+    </div>
+</body>
+</html>

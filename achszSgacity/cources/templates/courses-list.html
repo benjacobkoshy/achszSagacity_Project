@@ -1,0 +1,93 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <meta name="description" content="Ach'z SaGaCiTy - Online English Language Training Platform with a 99.9% success rate. Expert trainers help students achieve high scores in IELTS and UKVI IELTS since 2017. Personalized training for Listening, Reading, Writing & Speaking skills.">
+    <meta name="keywords" content="Online English Language Training, IELTS training, UKVI IELTS, English proficiency, Experienced Trainers, Listening skills, Reading skills, Writing skills, Speaking skills, Personalized training, English courses, English language education, English test preparation">
+    <meta name="author" content="Ach'z SaGaCiTy">
+
+    <!-- Favicons -->
+    <link href="{% static 'assets/img/favicon.png' %}" rel="icon">
+    <link href="{% static 'assets/img/apple-touch-icon.png' %}" rel="apple-touch-icon">
+  
+    <!-- Fonts -->
+    <link href="https://fonts.googleapis.com" rel="preconnect">
+    <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,300;1,400;1,500;1,600;1,700;1,800&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Raleway:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+  
+    <!-- Vendor CSS Files -->
+    <link href="{% static 'assets/vendor/bootstrap/css/bootstrap.min.css' %}" rel="stylesheet">
+    <link href="{% static 'assets/vendor/bootstrap-icons/bootstrap-icons.css' %}" rel="stylesheet">
+    <link href="{% static 'assets/vendor/aos/aos.css' %}" rel="stylesheet">
+    <link href="{% static 'assets/vendor/glightbox/css/glightbox.min.css' %}" rel="stylesheet">
+    <link href="{% static 'assets/vendor/swiper/swiper-bundle.min.css' %}" rel="stylesheet">
+  
+    <!-- Main CSS File -->
+    <link href="{% static 'assets/css/main.css' %}" rel="stylesheet">
+
+
+</head>
+<body>
+    
+
+ 
+
+    
+    
+        <!-- Courses Section -->
+        <section id="courses" class="courses section">
+            <div class="container">
+              <div class="row">
+                {% for course in courses %}
+                <div class="col-lg-4 col-md-6 d-flex align-items-stretch" data-aos="zoom-in" data-aos-delay="100">
+                  <div class="course-item">
+                    <img src="{{ course.course_image.url }}" class="img-fluid" alt="...">
+                    <div class="course-content">
+                      <div class="d-flex justify-content-between align-items-center mb-3">
+                        <p class="category">{{ course.name }}</p>
+                        <p class="price">Rs{{ course.price }}</p>
+                      </div>
+                      <h3><a href="{% url 'course_details' course.name %}">{{ course.detailed_name }}</a></h3>
+
+                      <p class="description">{{ course.description|slice:":300" }}...</p>
+                      <div class="trainer d-flex justify-content-between align-items-center">
+                        <div class="trainer-profile d-flex align-items-center">
+                          <img src="{% static 'banner/images/achsa.png' %}" class="img-fluid" alt="">
+                          <a href="" class="trainer-link">{{ course.trainer_name }}</a>
+                        </div>
+                        <!-- <div class="trainer-rank d-flex align-items-center">
+                          <i class="bi bi-person user-icon"></i>&nbsp;50
+                          &nbsp;&nbsp;
+                          <i class="bi bi-heart heart-icon"></i>&nbsp;65
+                        </div> -->
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                {% endfor %}
+                <!-- End Course Item-->
+              </div>
+            </div>
+          </section>
+          <!-- /Courses Section -->
+    
+
+
+
+
+     <!-- Vendor JS Files -->
+  <script src="{% static 'assets/vendor/bootstrap/js/bootstrap.bundle.min.js' %}"></script>
+  <script src="{% static 'assets/vendor/php-email-form/validate.js' %}"></script>
+  <script src="{% static 'assets/vendor/aos/aos.js' %}"></script>
+  <script src="{% static 'assets/vendor/glightbox/js/glightbox.min.js' %}"></script>
+  <script src="{% static 'assets/vendor/purecounter/purecounter_vanilla.js' %}"></script>
+  <script src="{% static 'assets/vendor/swiper/swiper-bundle.min.js' %}"></script>
+
+  <!-- Main JS File -->
+  <script src="{% static 'assets/js/main.js' %}"></script>
+
+</body>
+</html>

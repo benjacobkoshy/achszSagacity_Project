@@ -1,0 +1,149 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ach'z SaGaCiTy</title>
+
+    <!-- Favicons -->
+    <link href="{% static 'assets/img/favicon.png' %}" rel="icon">
+    <link href="{% static 'assets/img/apple-touch-icon.png' %}" rel="apple-touch-icon">
+
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            color: #34495E;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+        .container {
+            text-align: center;
+            position: relative;
+        }
+        .circle {
+            display: block;
+            margin: 0 auto;
+            background-color: #2E86C1;
+            border-radius: 50%;
+            width: 50px;
+            height: 50px;
+            overflow: hidden;
+            animation: growCircle 2s forwards;
+        }
+        .circle img {
+            width: 100%;
+            height: auto;
+        }
+        .name {
+            font-weight: bold;
+            color: black;
+            font-size: 2em;
+            margin-top: 20px;
+            opacity: 0;
+            animation: showText 2s forwards 2s;
+        }
+        @keyframes growCircle {
+            from {
+                width: 50px;
+                height: 50px;
+            }
+            to {
+                width: 200px;
+                height: 200px;
+            }
+        }
+        @keyframes showText {
+            from {
+                opacity: 0;
+            }
+            to {
+                opacity: 1;
+            }
+        }
+
+        @media (min-width: 1200px) {
+            .circle {
+                animation: growCircleLarge 2s forwards;
+            }
+            .name {
+                font-size: 2.5em;
+            }
+            @keyframes growCircleLarge {
+                from {
+                    width: 50px;
+                    height: 50px;
+                }
+                to {
+                    width: 250px;
+                    height: 250px;
+                }
+            }
+        }
+
+        @media (max-width: 1199px) {
+            .circle {
+                width: 40px;
+                height: 40px;
+                animation: growCircleMedium 2s forwards;
+            }
+            .name {
+                font-size: 1.5em;
+            }
+            @keyframes growCircleMedium {
+                from {
+                    width: 40px;
+                    height: 40px;
+                }
+                to {
+                    width: 150px;
+                    height: 150px;
+                }
+            }
+        }
+
+        @media (max-width: 768px) {
+            .circle {
+                width: 30px;
+                height: 30px;
+                animation: growCircleSmall 2s forwards;
+            }
+            .name {
+                font-size: 1.2em;
+            }
+            @keyframes growCircleSmall {
+                from {
+                    width: 30px;
+                    height: 30px;
+                }
+                to {
+                    width: 120px;
+                    height: 120px;
+                }
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="circle">
+            <img src="{% static 'banner/logo/logo.jpg' %}" alt="Logo">
+        </div>
+        <div class="name">
+            <h1 class="sitename">Ach'z SaGaCiTy</h1>
+        </div>
+    </div>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            setTimeout(function() {
+                window.location.href = "{% url 'home' %}";
+            }, 4000);
+        });
+    </script>
+</body>
+</html>

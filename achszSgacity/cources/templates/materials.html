@@ -1,0 +1,211 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+    <!DOCTYPE html>
+    <html lang="en">
+    
+    <head>
+      <meta charset="utf-8">
+      <meta content="width=device-width, initial-scale=1.0" name="viewport">
+      <title>Courses</title>
+      <meta name="description" content="Ach'z SaGaCiTy - Online English Language Training Platform with a 99.9% success rate. Expert trainers help students achieve high scores in IELTS and UKVI IELTS since 2017. Personalized training for Listening, Reading, Writing & Speaking skills.">
+      <meta name="keywords" content="Online English Language Training, IELTS training, UKVI IELTS, English proficiency, Experienced Trainers, Listening skills, Reading skills, Writing skills, Speaking skills, Personalized training, English courses, English language education, English test preparation">
+      <meta name="author" content="Ach'z SaGaCiTy">
+    
+      <!-- Favicons -->
+      <link href="{% static 'assets/img/favicon.png' %}" rel="icon">
+      <link href="{% static 'assets/img/apple-touch-icon.png' %}" rel="apple-touch-icon">
+    
+      <!-- Fonts -->
+      <link href="https://fonts.googleapis.com" rel="preconnect">
+      <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin>
+      <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;500;600;700;800&family=Poppins:wght@100;200;300;400;500;600;700;800;900&family=Raleway:wght@100;200;300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    
+      <!-- Vendor CSS Files -->
+     
+      <link href="{% static 'assets/vendor/aos/aos.css' %}" rel="stylesheet">
+      <link href="{% static 'assets/vendor/glightbox/css/glightbox.min.css' %}" rel="stylesheet">
+      <link href="{% static 'assets/vendor/swiper/swiper-bundle.min.css' %}" rel="stylesheet">
+    
+      <!-- Main CSS File -->
+      <link href="{% static 'assets/css/main.css' %}" rel="stylesheet">
+    </head>
+<body>
+    
+    {% include 'top.html' %}
+
+
+
+    <main class="main">
+        <!-- Page Title -->
+        <div class="page-title" data-aos="fade">
+            <div class="heading">
+                <div class="container">
+                    <div class="row d-flex justify-content-center text-center">
+                        <div class="col-lg-8">
+                            <h1>Materials</h1>
+                            <p class="mb-0">
+                                Welcome to Ach'z SaGaCiTy's exclusive materials section! We're thrilled to offer you a treasure trove of resources to enhance
+                                your English language skills in reading, writing, speaking, and listening. Typically, these premium materials come at a cost,
+                                but we're providing them to you for free! Dive in and take advantage of our expertly curated resources designed to help you
+                                achieve excellence. Your journey to mastering English just got a whole lot easier and more enjoyable!
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div><!-- End Page Title -->
+    </main>
+    
+
+
+
+<!-- materials.html -->
+<section id="courses" class="courses section">
+    <div class="container">
+        <div class="row">
+            {% for skill in skills %}
+            <div class="col-lg-4 col-md-6 d-flex align-items-stretch" data-aos="zoom-in" data-aos-delay="100" style="margin-top: 20px;">
+                <div class="course-item">
+                    <img src="{{ skill.skill_image.url }}" class="img-fluid" alt="...">
+                    <div class="course-content">
+                        <div class="d-flex justify-content-between align-items-center mb-3">
+                            <p class="category">{{ skill.name }}</p>
+                            <p class="price"><s>Rs499</s>&nbsp;&nbsp;FREE</p>
+                        </div>
+                        <h3><a href="#" onclick="showPopup('{{ skill.name }}')">{{ skill.name }}</a></h3>
+                        <p class="description">{{ skill.description }}</p>
+                        <div class="trainer d-flex justify-content-between align-items-center">
+                            <div class="trainer-profile d-flex align-items-center">
+                                <img src="{% static 'banner/images/achsa.png' %}" class="img-fluid" alt="">
+                                <a href="#" class="trainer-link">{{ skill.author_name }}</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            {% empty %}
+                <h3>Nothing to display.</h3>
+            {% endfor %}
+        </div>
+    </div>
+</section>
+
+
+<div class="popup-container" id="terms-popup">
+    <div class="popup-content">
+        <div class="close-btn" id="close-terms-popup"><i class="fas fa-times"></i></div>
+        <div class="container">
+        <h1>Choose an option for {{ skill.name }}</h1>
+        <a href="#" class="btn-getstarted">IELTS GENERAL</a>
+        <a href="#" class="btn-getstarted">IELTS ACADEMIC</a>
+        </div>
+    </div>
+</div>
+
+
+
+<script>
+    function showPopup(skillName) {
+    // Display the custom popup
+    let popupContainer = document.getElementById('terms-popup');
+    let popupContent = popupContainer.querySelector('.popup-content');
+    let popupTitle = popupContent.querySelector('h1');
+    let btnGeneral = popupContent.querySelector('.btn-getstarted:nth-child(2)');
+    let btnAcademic = popupContent.querySelector('.btn-getstarted:nth-child(3)');
+
+    popupTitle.textContent = `Choose an option for ${skillName}`;
+
+    // Show the popup
+    popupContainer.style.display = 'block';
+
+    // Handle button clicks
+    btnGeneral.onclick = function() {
+        openFolder('IELTS GENERAL');
+        closePopup();
+    };
+
+    btnAcademic.onclick = function() {
+        openFolder('IELTS ACADEMIC');
+        closePopup();
+    };
+
+    // Close popup when clicking the close button
+    document.getElementById('close-terms-popup').onclick = function() {
+        closePopup();
+    };
+
+    // Function to close the popup
+    function closePopup() {
+        popupContainer.style.display = 'none';
+        btnGeneral.onclick = null;  // Remove event handlers
+        btnAcademic.onclick = null;
+    }
+}
+
+    function showPopup(skillName) {
+        console.log('Clicked on:', skillName);
+        if (skillName === 'LISTENING') {
+            // Redirect to a specific URL for Listening
+            redirectToDrive('Listening');
+        } else if (skillName === 'SPEAKING') {
+            // Redirect to a specific URL for Speaking
+            redirectToDrive('Speaking');
+        } else if (skillName === 'READING' || skillName === 'WRITING') {
+            // Display a confirmation popup for Reading/Writing
+            let confirmed = window.confirm(`You clicked on ${skillName}. Choose one option:`);
+            if (confirmed) {
+                // Handle IELTS ACADEMIC button click (example: open a folder)
+                openFolder('IELTS ACADEMIC');
+            } else {
+                // Handle IELTS GENERAL button click (example: open a folder)
+                openFolder('IELTS GENERAL');
+            }
+        }
+    }
+
+    function redirectToDrive(skillName) {
+        // Example logic to redirect to a specific drive location
+        alert(`Redirecting to drive for ${skillName}`);
+        // Example: Redirect to a specific URL
+        if (skillName === 'Listening') {
+            window.location.href = 'https://drive.google.com/drive/folders/18D7xqoAVgpkov_hExuZycNkfMSgNf383?usp=drive_link';
+        } else if (skillName === 'Speaking') {
+            window.location.href = 'https://drive.google.com/drive/folders/18D7xqoAVgpkov_hExuZycNkfMSgNf383?usp=drive_link';
+        }
+    }
+
+    function openFolder(folderName) {
+        // Example logic to open a folder (replace with your actual logic)
+        alert(`Opening folder for ${folderName}`);
+        // Example: Redirect to a specific URL
+        window.location.href = `/open_folder?name=${folderName}`;
+    }
+</script>
+
+
+
+
+
+
+     {% include 'footer.html' %}
+  <!-- Scroll Top -->
+  <a href="#" id="scroll-top" class="scroll-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
+
+  <!-- Preloader -->
+  <div id="preloader"></div>
+
+  <!-- Vendor JS Files -->
+  <script src="{% static 'assets/vendor/bootstrap/js/bootstrap.bundle.min.js' %}"></script>
+  <script src="{% static 'assets/vendor/php-email-form/validate.js' %}"></script>
+  <script src="{% static 'assets/vendor/aos/aos.js' %}"></script>
+  <script src="{% static 'assets/vendor/glightbox/js/glightbox.min.js' %}"></script>
+  <script src="{% static 'assets/vendor/purecounter/purecounter_vanilla.js' %}"></script>
+  <script src="{% static 'assets/vendor/swiper/swiper-bundle.min.js' %}"></script>
+
+  <!-- Main JS File -->
+  <script src="{% static 'assets/js/main.js' %}"></script>
+
+
+</body>
+</html>

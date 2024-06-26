@@ -1,0 +1,31 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link href="{% static 'assets/css/main.css' %}" rel="stylesheet">
+</head>
+<body>
+       <!-- Hero Section -->
+   <section id="hero" class="hero section">
+
+    <img src="{% static 'assets/img/hero-bg.jpg' %}" alt="" data-aos="fade-in">
+
+    <div class="container">
+      <h2 data-aos="fade-up" data-aos-delay="100">Learning Today,<br>Leading Tomorrow</h2>
+      <p data-aos="fade-up" data-aos-delay="200">This is Achsa Jomesh.</p>
+      <p data-aos="fade-up" data-aos-delay="200">Online IELTS mentor.</p>
+      <div class="d-flex mt-4" data-aos="fade-up" data-aos-delay="300">
+        {% if user.is_authenticated %}
+          <a href="{% url 'get-started' %}" class="btn-get-started" style="text-decoration: none;">Get Started</a>
+        {% else %}
+          <a href="{% url 'account' %}" class="btn-get-started" style="text-decoration: none;">Register</a>
+        {% endif %}
+      </div>
+    </div>
+
+  </section><!-- /Hero Section -->
+</body>
+</html>
